@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -26,6 +26,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.3",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "paystack-api": "^2.0.6"
   }
 }
