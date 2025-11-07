@@ -1,11 +1,28 @@
+import validator from 'validator';
+import paystack from ('paystack-api')(process.env.PAYSTACK_SECRET_KEY);
 
-import paystack from 'paystack-api';
-
-const initializeTransaction = async (req, res) => {
+export const initializeTransaction = async (req, res) => {
   try {
     const {email , amount} = req.body;
-    const paystack = paystack
-  } catch (error) {
+    const emailValidation = validator.isEmpty(email);
+    const emailValidator = validator.isEmail(emailValidation);
+    const emailString = emailValidator.toLowerCase();
     
+    const amountValidation = validator.isEmpty(amount);
+    const amountValidator = validator.toFloat(amountValidation)
+
+    const paystackTransaction = await paystack.transaction.initialize({emailString, amountValidator});
+    res.status(200).send(paystackTransaction);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+}
+
+export const verifyTransaction = async (reference, res) => {
+  try {
+    const verify  = paystack.transaction.verify(reference);
+    return res.status(200).json(verify.data);
+  } catch (error) {
+    return res.status(500).send(error.message);
   }
 }
