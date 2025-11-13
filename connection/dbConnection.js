@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import consola from "consola";
-
+ 
 const dbConnection = () => {
     return mongoose 
         .connect(process.env.DATABASE_URL, {
