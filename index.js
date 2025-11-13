@@ -7,7 +7,7 @@ import dbConnection from "./connection/dbConnection.js";
 
 const app = express();
 dotenv.config(); 
-
+ 
 app.use(cors());
 app.use(
     bodyParser.urlencoded({
