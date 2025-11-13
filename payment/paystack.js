@@ -2,7 +2,7 @@ import validator from 'validator';
 import paystack from ('paystack-api')(process.env.PAYSTACK_SECRET_KEY);
  
 export const initializeTransaction = async (req, res) => {
-  try { 
+  try {  
     const {email , amount} = req.body;
     const emailValidation = validator.isEmpty(email);
     const emailValidator = validator.isEmail(emailValidation);
@@ -10,7 +10,7 @@ export const initializeTransaction = async (req, res) => {
      
     const amountValidation = validator.isEmpty(amount);
     const amountValidator = validator.toFloat(amountValidation)
-
+ 
     const paystackTransaction = await paystack.transaction.initialize({emailString, amountValidator});
     res.status(200).send(paystackTransaction);
   } catch (error) {
