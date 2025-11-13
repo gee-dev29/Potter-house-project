@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import consola from "consola";
 
 const dbConnection = () => {
-    return mongoose
+    return mongoose 
         .connect(process.env.DATABASE_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
