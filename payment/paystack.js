@@ -16,8 +16,8 @@ export const initializeTransaction = async (req, res) => {
   } catch (error) {
     return res.status(500).send(error.message); 
   }
-}
-
+} 
+ 
 export const verifyTransaction = async (reference, res) => {
   try {
     const verify  = paystack.transaction.verify(reference);
