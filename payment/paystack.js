@@ -14,7 +14,7 @@ export const initializeTransaction = async (req, res) => {
     const paystackTransaction = await paystack.transaction.initialize({emailString, amountValidator});
     res.status(200).send(paystackTransaction);
   } catch (error) {
-    return res.status(500).send(error.message);
+    return res.status(500).send(error.message); 
   }
 }
 
