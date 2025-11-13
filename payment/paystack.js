@@ -1,6 +1,6 @@
 import validator from 'validator';
 import paystack from ('paystack-api')(process.env.PAYSTACK_SECRET_KEY);
-
+ 
 export const initializeTransaction = async (req, res) => {
   try {
     const {email , amount} = req.body;
