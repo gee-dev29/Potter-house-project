@@ -7,7 +7,7 @@ export const initializeTransaction = async (req, res) => {
     const emailValidation = validator.isEmpty(email);
     const emailValidator = validator.isEmail(emailValidation);
     const emailString = emailValidator.toLowerCase();
-    
+     
     const amountValidation = validator.isEmpty(amount);
     const amountValidator = validator.toFloat(amountValidation)
 
